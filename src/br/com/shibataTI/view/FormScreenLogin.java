@@ -4,6 +4,10 @@
  */
 package br.com.shibataTI.view;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
 /**
  *
  * @author 37919058805
@@ -31,6 +35,7 @@ public class FormScreenLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
+        btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,6 +44,13 @@ public class FormScreenLogin extends javax.swing.JFrame {
         jLabel1.setText("Usuário:");
 
         jLabel2.setText("Senha:");
+
+        btnImprimir.setText("Imprimir");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,6 +71,10 @@ public class FormScreenLogin extends javax.swing.JFrame {
                             .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(33, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,12 +89,29 @@ public class FormScreenLogin extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(60, 60, 60))
+                .addGap(18, 18, 18)
+                .addComponent(btnImprimir)
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        // botão imprimir teste
+        imprimir("C:\\Users\\37919058805\\Desktop\\Rodrigo.txt");
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    //função imprimir teste
+    public void imprimir (String pCaminhodoArquivo){
+        Desktop desktop = Desktop.getDesktop();
+        
+        try {
+            File arquivoImprimir = new File(pCaminhodoArquivo);
+            desktop.print(arquivoImprimir);
+        } catch (IOException ex) {
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -115,6 +148,7 @@ public class FormScreenLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
