@@ -26,21 +26,94 @@ public class FormScreenMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        barMenu = new javax.swing.JMenuBar();
+        consultationRegistrationMenu = new javax.swing.JMenu();
+        storeItem = new javax.swing.JMenuItem();
+        technicalItem = new javax.swing.JMenuItem();
+        sectorItem = new javax.swing.JMenuItem();
+        equipmentsItem = new javax.swing.JMenuItem();
+        typesEquipmentsItem = new javax.swing.JMenuItem();
+        billingMenu = new javax.swing.JMenu();
+        newBillingItem = new javax.swing.JMenuItem();
+        queryBillingItem = new javax.swing.JMenuItem();
+        controlMenu = new javax.swing.JMenu();
+        laboratoryControlItem = new javax.swing.JMenuItem();
+        salesOrderControlItem = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        consultationRegistrationMenu.setText("Cadastros / Consulta");
+
+        storeItem.setText("Lojas");
+        storeItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                storeItemActionPerformed(evt);
+            }
+        });
+        consultationRegistrationMenu.add(storeItem);
+
+        technicalItem.setText("Técnicos");
+        technicalItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                technicalItemActionPerformed(evt);
+            }
+        });
+        consultationRegistrationMenu.add(technicalItem);
+
+        sectorItem.setText("Setores");
+        consultationRegistrationMenu.add(sectorItem);
+
+        equipmentsItem.setText("Equipamentos");
+        consultationRegistrationMenu.add(equipmentsItem);
+
+        typesEquipmentsItem.setText("Tipos de Equipamentos");
+        consultationRegistrationMenu.add(typesEquipmentsItem);
+
+        barMenu.add(consultationRegistrationMenu);
+
+        billingMenu.setText("Cobranças");
+
+        newBillingItem.setText("Nova Cobrança +");
+        billingMenu.add(newBillingItem);
+
+        queryBillingItem.setText("Consultar");
+        billingMenu.add(queryBillingItem);
+
+        barMenu.add(billingMenu);
+
+        controlMenu.setText("Controle");
+
+        laboratoryControlItem.setText("Laboratório");
+        controlMenu.add(laboratoryControlItem);
+
+        salesOrderControlItem.setText("Pedidos de Vendas");
+        controlMenu.add(salesOrderControlItem);
+
+        barMenu.add(controlMenu);
+
+        setJMenuBar(barMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 650, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 441, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void storeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeItemActionPerformed
+        new FormScreenRegisterStore().setVisible(true);
+    }//GEN-LAST:event_storeItemActionPerformed
+
+    private void technicalItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_technicalItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_technicalItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +151,18 @@ public class FormScreenMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar barMenu;
+    private javax.swing.JMenu billingMenu;
+    private javax.swing.JMenu consultationRegistrationMenu;
+    private javax.swing.JMenu controlMenu;
+    private javax.swing.JMenuItem equipmentsItem;
+    private javax.swing.JMenuItem laboratoryControlItem;
+    private javax.swing.JMenuItem newBillingItem;
+    private javax.swing.JMenuItem queryBillingItem;
+    private javax.swing.JMenuItem salesOrderControlItem;
+    private javax.swing.JMenuItem sectorItem;
+    private javax.swing.JMenuItem storeItem;
+    private javax.swing.JMenuItem technicalItem;
+    private javax.swing.JMenuItem typesEquipmentsItem;
     // End of variables declaration//GEN-END:variables
 }
