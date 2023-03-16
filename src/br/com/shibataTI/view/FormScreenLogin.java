@@ -4,10 +4,12 @@
  */
 package br.com.shibataTI.view;
 
+import br.com.shibataTI.dao.EmployeesDAO;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,95 +33,107 @@ public class FormScreenLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanelScreenLogin = new javax.swing.JPanel();
+        btnLogin = new javax.swing.JButton();
+        jLabelUser = new javax.swing.JLabel();
+        jLabelPassword = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
-        btnSelectedArquivo = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Login");
 
-        jButton1.setText("Entrar");
+        jPanelScreenLogin.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("Usuário:");
-
-        jLabel2.setText("Senha:");
-
-        btnSelectedArquivo.setText("Selecionar Arquivo");
-        btnSelectedArquivo.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setText("Entrar");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelectedArquivoActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
+
+        jLabelUser.setText("Usuário:");
+
+        jLabelPassword.setText("Senha:");
+
+        javax.swing.GroupLayout jPanelScreenLoginLayout = new javax.swing.GroupLayout(jPanelScreenLogin);
+        jPanelScreenLogin.setLayout(jPanelScreenLoginLayout);
+        jPanelScreenLoginLayout.setHorizontalGroup(
+            jPanelScreenLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelScreenLoginLayout.createSequentialGroup()
+                .addContainerGap(84, Short.MAX_VALUE)
+                .addComponent(btnLogin)
+                .addGap(93, 93, 93))
+            .addGroup(jPanelScreenLoginLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(jPanelScreenLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelPassword)
+                    .addComponent(jLabelUser))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelScreenLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                    .addComponent(txtPassword))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanelScreenLoginLayout.setVerticalGroup(
+            jPanelScreenLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelScreenLoginLayout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addGroup(jPanelScreenLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUser)
+                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelScreenLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPassword)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addComponent(btnLogin)
+                .addGap(15, 15, 15))
+        );
+
+        jLabelPassword.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSelectedArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addGap(27, 27, 27)
+                .addComponent(jPanelScreenLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(btnSelectedArquivo)
-                .addGap(19, 19, 19))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jPanelScreenLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSelectedArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectedArquivoActionPerformed
-        // botão imprimir teste                                           
-        JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-        File selectedFile = chooser.getSelectedFile();
-        if (selectedFile != null) {
-            imprimir(selectedFile.getAbsolutePath());
-        }
-
-
-    }//GEN-LAST:event_btnSelectedArquivoActionPerformed
-
-    //função imprimir teste
-    public void imprimir(String pCaminhodoArquivo) {
-        Desktop desktop = Desktop.getDesktop();
-
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+                // Botão entrar
         try {
-            File arquivoImprimir = new File(pCaminhodoArquivo);
-            desktop.print(arquivoImprimir);
-        } catch (IOException ex) {
+            String usuario, senha;
+            usuario=txtUser.getText();
+            senha=txtPassword.getText();
+            
+            EmployeesDAO dao = new EmployeesDAO();
+            
+            //Chamando da classe EmployeesDAO o método efetuarLogin
+            dao.efetuarLogin(usuario, senha);
+            
+            //Esconder formulário de login
+            //this.dispose();
+            
+        } catch (Exception erroSQL) {
+            JOptionPane.showMessageDialog(null, "Erro Sql!" + erroSQL);
         }
-    }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -157,10 +171,10 @@ public class FormScreenLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSelectedArquivo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelUser;
+    private javax.swing.JPanel jPanelScreenLogin;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
